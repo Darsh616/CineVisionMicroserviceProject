@@ -159,16 +159,18 @@ services:
       context: ./movieService
       dockerfile: Dockerfile
     ports:
-      - "8082:8082"
+    - "8082:8082"
     depends_on:
       eureka-server:
         condition: service_healthy
       postgres:
         condition: service_healthy
     environment:
+       - spring.application.name=movie-service
        - spring.datasource.url=jdbc:postgresql://postgres:5432/cine_vision
        - spring.datasource.username=postgres
        - spring.datasource.password=12345
+       - eureka.client.service-url.defaultZone=http://eureka-server:8761/eureka
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
@@ -228,10 +230,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-     - REACT_APP_API_URL=http://api-gateway:8080   # tell React to use API Gateway
-    depends_on:
-      api-gateway:
-        condition: service_healthy
+     - REACT_APP_API_URL=http://localhost:8080   # tell React to use API Gateway
+    # depends_on:
+    #   api-gateway:
+    #     condition: service_healthy
     stdin_open: true   # keep container alive for React dev server
     tty: true
     restart: unless-stopped

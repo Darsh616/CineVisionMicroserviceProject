@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: movieService
+    name: movie-service
 
   # Corrected PostgreSQL Properties
   datasource:
