@@ -187,10 +187,7 @@ on <b> localhost:3000 </b>.
 </ol>
 
 Changing the read.me or pr merge 
-kyue ki mujeh sir poc se branch merge karna hai 
-
-hello guys 
-change done form WEB console 
+sab uch hata rha hu thik hai 
 ## Project UI
 
 https://user-images.githubusercontent.com/79381882/194945895-f7e2d2d2-4899-4ade-8c79-ecb647949ffd.mp4
